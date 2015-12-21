@@ -7,6 +7,6 @@
 
 | Target | Build |
 | -----------------------|------------------|
-| Project | [![Build status](https://ci.appveyor.com/api/projects/status/meaiygl0t8uh2ro3?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authentication-passwords) |
-| Master branch | [![Build status](https://ci.appveyor.com/api/projects/status/meaiygl0t8uh2ro3/branch/master?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authentication-passwords/branch/master) |
-| Dev branch | [![Build status](https://ci.appveyor.com/api/projects/status/meaiygl0t8uh2ro3/branch/dev?svg=true)](https://ci.appveyor.com/project/johannesvaltonen/dotnet-authentication-passwords/branch/dev) |
+| Project | [![Build status](https://ci.appveyor.com/api/projects/status/meaiygl0t8uh2ro3?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authentication-passwords) |
+| Master branch | [![Build status](https://ci.appveyor.com/api/projects/status/meaiygl0t8uh2ro3/branch/master?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authentication-passwords/branch/master) |
+| Dev branch | [![Build status](https://ci.appveyor.com/api/projects/status/meaiygl0t8uh2ro3/branch/dev?svg=true)](https://ci.appveyor.com/project/affecto/dotnet-authentication-passwords/branch/dev) |

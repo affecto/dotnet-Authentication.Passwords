@@ -6,8 +6,9 @@ namespace Affecto.Authentication.Passwords
 {
     public class Password
     {
-        private readonly string password;
         private readonly IPasswordHasher passwordHasher;
+
+        public string Value { get; private set; }
 
         public Password(string password)
             : this(new AdaptivePasswordHasher(), password)
@@ -26,17 +27,17 @@ namespace Affecto.Authentication.Passwords
             }
 
             this.passwordHasher = passwordHasher;
-            this.password = password;
+            Value = password;
         }
 
         public string Hash()
         {
-            return passwordHasher.HashPassword(password);
+            return passwordHasher.HashPassword(Value);
         }
 
         public PasswordMatch MatchTo(string hashedPassword)
         {
-            PasswordVerificationResult result = passwordHasher.VerifyHashedPassword(hashedPassword, password);
+            PasswordVerificationResult result = passwordHasher.VerifyHashedPassword(hashedPassword, Value);
 
             switch (result)
             {

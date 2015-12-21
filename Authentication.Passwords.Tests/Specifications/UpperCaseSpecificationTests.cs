@@ -1,0 +1,62 @@
+﻿// ReSharper disable ObjectCreationAsStatement
+
+using System.Linq;
+using Affecto.Authentication.Passwords.Specifications;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Affecto.Authentication.Passwords.Tests.Specifications
+{
+    [TestClass]
+    public class UpperCaseSpecificationTests
+    {
+        private UpperCaseSpecification sut;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            sut = new UpperCaseSpecification();
+        }
+
+        [TestMethod]
+        public void OnlyUpperCaseCharacters()
+        {
+            bool result = sut.IsSatisfiedBy("ABC");
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void UpperCaseAndOtherCharacters()
+        {
+            bool result = sut.IsSatisfiedBy("abABcCx");
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void NullString()
+        {
+            bool result = sut.IsSatisfiedBy(null);
+            AssertDissatisfaction(result);
+        }
+
+        [TestMethod]
+        public void EmptyString()
+        {
+            bool result = sut.IsSatisfiedBy(string.Empty);
+            AssertDissatisfaction(result);
+        }
+
+        [TestMethod]
+        public void WhitespaceString()
+        {
+            bool result = sut.IsSatisfiedBy("  ");
+            AssertDissatisfaction(result);
+        }
+
+        public void AssertDissatisfaction(bool result)
+        {
+            Assert.IsFalse(result);
+            Assert.AreEqual(1, sut.ReasonsForDissatisfaction.Count());
+            Assert.AreEqual(UpperCaseSpecification.PasswordDoesNotContainUpperCaseLetters, sut.ReasonsForDissatisfaction.Single());
+        }
+    }
+}
